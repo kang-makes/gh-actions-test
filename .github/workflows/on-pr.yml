@@ -1,0 +1,12 @@
+name: Reject any PR that does not go to devel branch
+on:
+  pull_request_target:
+    branches-ignore:
+    - devel
+jobs:
+  close-merge-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: superbrothers/close-pull-request@v3
+      with:
+        comment: "PRs have to go to `devel` branch as especified in the README."
